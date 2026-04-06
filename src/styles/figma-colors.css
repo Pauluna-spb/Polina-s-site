@@ -1,0 +1,71 @@
+:root {
+  --figma-text-primary: #333333;
+  --figma-text-secondary: #616161;
+  --figma-text-contrast: #fafafa;
+  --figma-surface-muted: #d9d9d9;
+  --figma-mb-5: #6b6df2;
+  --figma-mb-4: #818bf8;
+  --figma-mb-2: #c7d2fe;
+  --figma-mb-0-5: #eef2ff;
+  --figma-y2: #fcf9f2;
+  --figma-y: #f5e875;
+  --figma-g: #007d9b;
+  --figma-g-0-5: #c9eaec;
+}
+
+/* Figma color styles */
+.figma-text-primary {
+  color: var(--figma-text-primary);
+}
+
+.figma-text-secondary {
+  color: var(--figma-text-secondary);
+}
+
+.figma-text-contrast {
+  color: var(--figma-text-contrast);
+}
+
+.figma-surface-muted {
+  background-color: var(--figma-surface-muted);
+}
+
+.figma-mb-5 {
+  color: var(--figma-mb-5);
+}
+
+.figma-bg-mb-0-5 {
+  background-color: var(--figma-mb-0-5);
+}
+
+.figma-bg-mb-4 {
+  background-color: var(--figma-mb-4);
+}
+
+.figma-fill-mb-4 {
+  fill: var(--figma-mb-4);
+}
+
+.figma-border-mb-2 {
+  border-color: var(--figma-mb-2);
+}
+
+.figma-border-mb-5 {
+  border-color: var(--figma-mb-5);
+}
+
+.figma-bg-y2 {
+  background-color: var(--figma-y2);
+}
+
+.figma-border-y {
+  border-color: var(--figma-y);
+}
+
+.figma-bg-g-0-5 {
+  background-color: var(--figma-g-0-5);
+}
+
+.figma-border-g {
+  border-color: var(--figma-g);
+}

@@ -1,0 +1,235 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<article class:list={["chat-rag-card", className]} data-name="Chat" data-node-id="100:10949">
+  <img class="chat-rag-card__logo" src="/assets/source/RAG System.svg" alt="RAG System" />
+
+  <section class="chat-rag-card__qa">
+    <div class="chat-rag-card__question">Hey!</div>
+
+    <div class="chat-rag-card__answer">
+      <p>Hey! How can I assist you today?</p>
+      <div class="chat-rag-card__chips">
+        <span class="chip">Hey.doc</span>
+        <span class="chip">Test.docx</span>
+        <span class="chip chip--folder">
+          <span class="chip__folder" aria-hidden="true"></span>
+          Test_folder
+        </span>
+        <span class="chip">+5</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chat-rag-card__inputs">
+    <label class="field field--message">
+      <span>Ask me anything...</span>
+      <button class="send" type="button" aria-label="Send">
+        <span aria-hidden="true">➤</span>
+      </button>
+    </label>
+
+    <label class="field field--select">
+      <span class="field__label">Knowledge Base</span>
+      <span class="field__value">Main</span>
+      <span class="field__caret" aria-hidden="true"></span>
+    </label>
+
+    <div class="prompt-row">
+      <span>System Prompt</span>
+      <span class="prompt-row__caret" aria-hidden="true"></span>
+    </div>
+  </section>
+</article>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+  .chat-rag-card {
+    width: 545px;
+    height: 474px;
+    border: 1px solid #333;
+    border-radius: 30px;
+    background: #fafafa;
+    box-sizing: border-box;
+    padding: 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 32px;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #212121;
+  }
+
+  .chat-rag-card__logo {
+    position: absolute;
+    top: 19px;
+    right: 21px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .chat-rag-card__qa {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chat-rag-card__question {
+    align-self: flex-end;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .chat-rag-card__answer p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    max-width: 280px;
+  }
+
+  .chat-rag-card__chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .chip__folder {
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    background: #212121;
+    display: inline-block;
+    position: relative;
+  }
+
+  .chip__folder::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: -3px;
+    width: 7px;
+    height: 4px;
+    border-radius: 2px 2px 0 0;
+    background: #212121;
+  }
+
+  .chat-rag-card__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .field {
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    height: 44px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .field--message {
+    height: 72px;
+    min-height: 72px;
+    max-height: 72px;
+    align-items: flex-start;
+    padding-top: 12px;
+    color: #9e9e9e;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .send {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 20px;
+    background: #424242;
+    color: #fafafa;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .field--select {
+    padding-top: 0;
+    align-items: center;
+  }
+
+  .field__label {
+    position: absolute;
+    left: 12px;
+    top: -9px;
+    padding: 0 4px;
+    background: #fafafa;
+    color: #9e9e9e;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+
+  .field__value {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .field__caret,
+  .prompt-row__caret {
+    margin-left: auto;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #212121;
+  }
+
+  .prompt-row {
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .prompt-row__caret {
+    transform: rotate(180deg);
+  }
+</style>

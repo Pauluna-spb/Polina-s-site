@@ -1,0 +1,52 @@
+---
+interface Props {
+  size?: "M" | "S";
+  class?: string;
+}
+
+const { size = "M", class: className = "" } = Astro.props;
+const isSmall = size === "S";
+---
+
+<article
+  class:list={[
+    "team-directory-card",
+    "figma-bg-y2",
+    "figma-border-y",
+    isSmall && "team-directory-card--s",
+    className,
+  ]}
+  data-node-id={isSmall ? "98:10606" : "98:10604"}
+>
+  <h3 class="figma-h1 figma-text-secondary">
+    Team Directory
+    <br />
+    & Access Management
+    <br />
+    Platform
+  </h3>
+</article>
+
+<style>
+  @import "../../styles/figma-colors.css";
+  @import "../../styles/figma-typography.css";
+
+  .team-directory-card {
+    width: 310px;
+    height: 232px;
+    border: 1px solid;
+    border-radius: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 19px;
+  }
+
+  .team-directory-card--s {
+    width: 225px;
+  }
+
+  .team-directory-card h3 {
+    margin: 0;
+    line-height: 1.16;
+  }
+</style>

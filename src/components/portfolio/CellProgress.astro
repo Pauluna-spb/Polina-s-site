@@ -1,0 +1,65 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+type Size = "M" | "S";
+
+interface Props {
+  class?: string;
+  size?: Size;
+  title?: string;
+}
+
+const {
+  class: className = "",
+  size = "M",
+  title = "Team Directory\n& Access Management\nPlatform",
+} = Astro.props;
+---
+
+<article
+  class:list={["cell-progress figma-bg-y2", size === "S" ? "cell-progress--s" : "cell-progress--m", className]}
+  data-node-id={size === "S" ? "98:10606" : "98:10604"}
+>
+  <h3
+    class:list={[
+      "cell-progress__title figma-h1 figma-text-secondary",
+      size === "S" && "cell-progress__title--s",
+    ]}
+    data-node-id={size === "S" ? "98:10889" : "98:10602"}
+  >
+    {title}
+  </h3>
+</article>
+
+<style>
+  .cell-progress {
+    height: 232px;
+    border-radius: 30px;
+    border: 1px solid var(--figma-y);
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cell-progress--m {
+    width: 310px;
+  }
+
+  .cell-progress--s {
+    width: 225px;
+  }
+
+  .cell-progress__title {
+    margin: 0;
+    position: absolute;
+    top: 19px;
+    left: 19px;
+    white-space: pre-line;
+    max-width: calc(100% - 38px);
+  }
+
+  .cell-progress__title--s {
+    width: 185px;
+  }
+</style>

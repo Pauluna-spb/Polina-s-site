@@ -1,0 +1,132 @@
+---
+---
+
+<article class="widget-s3" data-name="Widget / S3" data-node-id="80:9201">
+  <header class="widget-s3__head">
+    <div class="widget-s3__logo">
+      <img src="/assets/source/widget/S3.svg" alt="S3" />
+      <strong>S3</strong>
+    </div>
+    <div class="widget-s3__actions">
+      <img src="/assets/source/widget/Sours.svg" alt="" aria-hidden="true" />
+      <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+      <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+    </div>
+  </header>
+
+  <section class="widget-s3__metrics">
+    <div class="memory-ring memory-ring--green" aria-hidden="true"></div>
+    <div class="meta">
+      <p class="percent">
+        32,7%
+        <span class="clear-icon clear-icon--green" aria-hidden="true"></span>
+      </p>
+      <p class="label">Memory usage</p>
+      <p class="value">1,37 MB / 972 MB</p>
+    </div>
+  </section>
+
+  <section class="widget-s3__drop">
+    <button type="button">
+      <span aria-hidden="true">+</span>
+      Add files
+    </button>
+  </section>
+</article>
+
+<style>
+  .widget-s3 {
+    width: 310px;
+    height: 232px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 4px 8px 12px;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .widget-s3__head {
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .widget-s3__logo {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 4px 4px 4px 6px;
+  }
+  .widget-s3__logo img { width: 24px; height: 24px; }
+  .widget-s3__logo strong { font-size: 16px; line-height: 20px; font-weight: 500; color: #212121; }
+
+  .widget-s3__actions { display: inline-flex; gap: 4px; align-items: center; }
+  .widget-s3__actions img { width: 24px; height: 24px; }
+
+  .widget-s3__metrics {
+    margin-top: 16px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .memory-ring {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, #fafafa 20px, transparent 20.5px),
+      conic-gradient(#6366f1 0 78%, #e0e0e0 78% 100%);
+  }
+  .memory-ring--green {
+    background:
+      radial-gradient(circle at center, #fafafa 20px, transparent 20.5px),
+      conic-gradient(#00951a 0 32.7%, #e0e0e0 32.7% 100%);
+  }
+
+  .percent {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #00951a;
+  }
+  .clear-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #6b6df2;
+    -webkit-mask: url("/assets/source/widget/Clear.svg") center / contain no-repeat;
+    mask: url("/assets/source/widget/Clear.svg") center / contain no-repeat;
+  }
+  .clear-icon--green { background-color: #00951a; }
+  .label { margin: 0; font-size: 14px; line-height: 16px; color: #9e9e9e; }
+  .value { margin: 0; font-size: 14px; line-height: 16px; color: #212121; font-weight: 500; }
+
+  .widget-s3__drop {
+    margin: 18px 2px 0 4px;
+    border: 1px dashed #bdbdbd;
+    border-radius: 10px;
+    height: 92px;
+    display: grid;
+    place-items: center;
+  }
+  .widget-s3__drop button {
+    border: 0;
+    background: transparent;
+    color: #9e9e9e;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .widget-s3__drop button span { font-size: 24px; line-height: 1; }
+</style>

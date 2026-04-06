@@ -1,0 +1,277 @@
+---
+interface Ticket {
+  id: string;
+  estimate: string;
+  priority?: "high" | "normal";
+  status: string;
+  statusType: "progress" | "todo" | "muted";
+}
+
+const tickets: Ticket[] = [
+  { id: "IFDEV-97", estimate: "2d 4h", priority: "normal", status: "IN PROGRESS", statusType: "progress" },
+  { id: "IFDEV-96", estimate: "1d", priority: "high", status: "IN PROGRESS", statusType: "progress" },
+  { id: "IFDEV-95", estimate: "4h", priority: "normal", status: "TO DO", statusType: "todo" },
+  { id: "IFDEV-95", estimate: "4h", priority: "normal", status: "BLOCKED", statusType: "muted" },
+  { id: "IFDEV-95", estimate: "4h", priority: "normal", status: "TEST STATUS", statusType: "muted" },
+];
+---
+
+<section class="jira-set" data-name="Widget Jira set" data-node-id="80:7451">
+  <article class="jira-card jira-card--full">
+    <header class="jira-card__head">
+      <div class="jira-logo">
+        <img class="jira-logo__icon" src="/assets/source/widget/Jira.svg" alt="" aria-hidden="true" />
+        <strong>Jira</strong>
+      </div>
+      <div class="jira-actions">
+        <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+      </div>
+    </header>
+
+    <div class="jira-filters" aria-label="Filters">
+      <span>My open issues</span>
+      <span>Filter_1</span>
+      <span>Updated recently</span>
+    </div>
+
+    <div class="jira-tickets">
+      {
+        tickets.map((ticket) => (
+          <article class="jira-ticket">
+            <div class="jira-ticket__top">
+              <div class="jira-ticket__meta">
+                <span class="ticket-id">{ticket.id}</span>
+                <span class="ticket-est">{ticket.estimate}</span>
+                <img
+                  class="ticket-priority"
+                  src={ticket.priority === "high" ? "/assets/source/widget/jira-priority-high.svg" : "/assets/source/widget/jira-priority.svg"}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class:list={["ticket-status", `is-${ticket.statusType}`]}>{ticket.status}</span>
+            </div>
+            <p>[PEN] Jira widget loren ipsun test test test</p>
+          </article>
+        ))
+      }
+      <span class="jira-scrollbar" aria-hidden="true"></span>
+    </div>
+  </article>
+
+  <article class="jira-card jira-card--empty">
+    <header class="jira-card__head">
+      <div class="jira-logo">
+        <img class="jira-logo__icon" src="/assets/source/widget/Jira.svg" alt="" aria-hidden="true" />
+        <strong>Jira</strong>
+      </div>
+      <div class="jira-actions">
+        <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+      </div>
+    </header>
+    <div class="jira-empty">
+      <div class="jira-empty__icon" aria-hidden="true">👍</div>
+      <p>You don’t have any tickets in progress or ones that need to be done.</p>
+    </div>
+  </article>
+</section>
+
+<style>
+  .jira-set {
+    width: 304px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #212121;
+  }
+
+  .jira-card {
+    width: 304px;
+    height: 384px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .jira-card__head {
+    height: 32px;
+    margin: 6px 8px 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .jira-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .jira-logo strong {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  .jira-logo__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .jira-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .jira-actions img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .jira-filters {
+    margin: 6px 8px 0 12px;
+    display: flex;
+    gap: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .jira-filters span {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+  }
+
+  .jira-tickets {
+    margin: 6px 0 0;
+    height: 312px;
+    padding: 0 4px 0 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .jira-ticket {
+    width: 284px;
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(66, 66, 66, 0.25);
+    padding: 8px 8px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .jira-ticket__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .jira-ticket__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .ticket-id {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #9e9e9e;
+  }
+
+  .ticket-est {
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #6b6df2;
+    color: #fafafa;
+    font-size: 9px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+  .ticket-priority {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: inline-block;
+  }
+
+  .ticket-status {
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 9px;
+    line-height: 10px;
+    font-weight: 500;
+    color: #fafafa;
+    white-space: nowrap;
+  }
+
+  .ticket-status.is-progress {
+    background: linear-gradient(5deg, #e32c16 14%, #fa8c24 88%);
+  }
+
+  .ticket-status.is-todo {
+    background: #6b6df2;
+  }
+
+  .ticket-status.is-muted {
+    background: #bdbdbd;
+  }
+
+  .jira-ticket p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+
+  .jira-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 58px;
+    width: 4px;
+    height: 40px;
+    border-radius: 2px;
+    background: #757575;
+  }
+
+  .jira-empty {
+    padding: 58px 20px 0;
+  }
+
+  .jira-empty__icon {
+    font-size: 42px;
+    line-height: 1;
+    filter: grayscale(1);
+    opacity: 0.4;
+    width: 42px;
+    text-align: center;
+  }
+
+  .jira-empty p {
+    margin: 8px 0 0;
+    width: 243px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #9e9e9e;
+  }
+</style>

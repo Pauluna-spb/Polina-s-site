@@ -1,0 +1,124 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+type Variant = "default" | "rag";
+
+interface Props {
+  class?: string;
+  variant?: Variant;
+}
+
+const {
+  class: className = "",
+  variant = "default",
+} = Astro.props;
+
+const isDefault = variant === "default";
+const isRag = variant === "rag";
+---
+
+<article
+  class:list={["insight-cell", `insight-cell--${variant}`, className]}
+  data-node-id={isDefault ? "92:8667" : "92:8669"}
+>
+  {
+    isDefault && (
+      <>
+        <p class="insight-cell__text figma-h2-1 figma-text-secondary">
+          Reporting System it’s
+          <br />
+          a system where all
+          <br />
+          reports live in one place
+          <br />
+          and follow a shared
+          <br />
+          structure.
+        </p>
+        <img class="insight-cell__folder" src="/assets/source/folder.svg" alt="" aria-hidden="true" />
+      </>
+    )
+  }
+
+  {
+    isRag && (
+      <>
+        <img class="insight-cell__rag-bg" src="/assets/source/RAG.png" alt="" aria-hidden="true" />
+        <div class="insight-cell__overlay" aria-hidden="true"></div>
+        <p class="insight-cell__rag-text figma-h2-1 figma-text-contrast">
+          An internal AI system
+          <br />
+          that works with
+          <br />
+          company knowledge.
+        </p>
+      </>
+    )
+  }
+</article>
+
+<style>
+  .insight-cell {
+    width: 225px;
+    height: 232px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .insight-cell--default {
+    background: var(--figma-g-0-5);
+    border: 1px solid var(--figma-g);
+  }
+
+  .insight-cell__text {
+    margin: 0;
+    position: absolute;
+    left: 19px;
+    top: 19px;
+    line-height: 1.15;
+  }
+
+  .insight-cell__folder {
+    width: 72px;
+    height: auto;
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .insight-cell--rag {
+    background: #e8a8a0;
+  }
+
+  .insight-cell__rag-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .insight-cell__overlay {
+    position: absolute;
+    left: 15px;
+    top: 34px;
+    width: 188px;
+    height: 64px;
+    border-radius: 13px;
+    background: var(--figma-text-primary);
+    opacity: 0.9;
+  }
+
+  .insight-cell__rag-text {
+    margin: 0;
+    position: absolute;
+    left: 25px;
+    top: 37px;
+    text-shadow: 0 2px 8px rgba(23, 23, 23, 0.9);
+    line-height: 1.15;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+interface Props {
+  class?: string;
+  label?: string;
+  href?: string;
+  forceHover?: boolean;
+  noHover?: boolean;
+}
+
+const {
+  class: className = "",
+  label = "About me",
+  href = "#",
+  forceHover = false,
+  noHover = false,
+} = Astro.props;
+---
+
+<a
+  class:list={[
+    "chip figma-bg-mb-0-5",
+    forceHover && "chip--hover",
+    noHover && "chip--static",
+    className,
+  ]}
+  href={href}
+  data-name="Chip"
+  data-node-id={forceHover ? "59:5689" : "31:5109"}
+>
+  <span class="chip__label figma-h2-1 figma-mb-5" data-node-id={forceHover ? "59:5690" : "26:5359"}>
+    {label}
+  </span>
+</a>
+
+<style>
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+
+  .chip:not(.chip--static):hover,
+  .chip:not(.chip--static):focus-visible,
+  .chip--hover {
+    border-color: var(--figma-mb-2);
+    box-shadow: 0 3px 4px rgba(107, 109, 242, 0.1);
+    outline: none;
+  }
+
+  .chip__label {
+    text-align: center;
+    white-space: nowrap;
+  }
+</style>

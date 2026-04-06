@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+.tools
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS metadata
+.DS_Store

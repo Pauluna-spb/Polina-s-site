@@ -1,0 +1,87 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+interface Props {
+  class?: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+const {
+  class: className = "",
+  href = "https://www.figma.com/design/i852bQ8PXlfPXboCudQ1yx/Polina%22s-Cases",
+  linkLabel = "Ditailed Figma file",
+} = Astro.props;
+---
+
+<article class:list={["cell-figma figma-bg-y2", className]} data-name="Cell / Figma" data-node-id="67:7987">
+  <img
+    class="cell-figma__logo"
+    src="/assets/source/Figma Logo.svg"
+    alt="Figma logo"
+    data-name="Figma Logo Full Color"
+    data-node-id="64:6711"
+  />
+
+  <a class="cell-figma__link" href={href} target="_blank" rel="noopener noreferrer" data-name="Link" data-node-id="64:6727">
+    <span class="cell-figma__link-text figma-text-body figma-text-contrast">{linkLabel}</span>
+    <span class="material-symbols-rounded cell-figma__arrow" aria-hidden="true">arrow_outward</span>
+  </a>
+</article>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1");
+
+  .cell-figma {
+    width: 225px;
+    height: 232px;
+    border: 1px solid var(--figma-y);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .cell-figma__logo {
+    width: 102px;
+    height: 102px;
+    position: absolute;
+    left: 122px;
+    top: 16px;
+    object-fit: contain;
+  }
+
+  .cell-figma__link {
+    position: absolute;
+    left: 19px;
+    top: 189px;
+    height: 25px;
+    padding: 0 8px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    background: var(--figma-mb-5);
+    text-decoration: none;
+    gap: 2px;
+  }
+
+  .cell-figma__link:hover {
+    text-decoration: none;
+  }
+
+  .cell-figma__link:hover .cell-figma__link-text {
+    text-decoration-line: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .cell-figma__arrow {
+    font-family: "Material Symbols Rounded", sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--figma-text-contrast);
+    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 20;
+  }
+</style>

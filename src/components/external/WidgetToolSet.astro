@@ -1,0 +1,286 @@
+---
+---
+
+<section class="widget-set" data-name="Widget set" data-node-id="80:6568">
+  <article class="widget-card widget-card--kafka">
+    <header class="widget-card__head">
+      <div class="tool-logo">
+        <img src="/assets/source/widget/Apache Kafka 1.svg" alt="Kafka" />
+        <strong>Kafka</strong>
+      </div>
+      <div class="tool-actions">
+        <img src="/assets/source/widget/Sours.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+      </div>
+    </header>
+
+    <div class="kafka-caption">replicas</div>
+
+    <div class="kafka-table">
+      <div><span>broadcast</span><b>3</b></div>
+      <div class="is-active"><span>dropbox</span><b>2</b></div>
+      <div><span>private</span><b>1</b></div>
+    </div>
+  </article>
+
+  <article class="widget-card widget-card--redis">
+    <header class="widget-card__head">
+      <div class="tool-logo">
+        <img src="/assets/source/widget/redis 1.svg" alt="Redis" />
+        <strong>Redis</strong>
+      </div>
+      <div class="tool-actions">
+        <img src="/assets/source/widget/Sours.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+        <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+      </div>
+    </header>
+
+    <div class="redis-metrics">
+      <div class="memory-ring" aria-hidden="true"></div>
+      <div class="memory-meta">
+        <p class="memory-percent">
+          78,14%
+          <span class="clear-icon" aria-hidden="true"></span>
+        </p>
+        <p class="memory-label">Memory usage</p>
+        <p class="memory-total">759 MB / 972 MB</p>
+      </div>
+    </div>
+
+    <div class="redis-event">
+      <p class="redis-event__title">
+        <img src="/assets/source/widget/tips_and_updates.svg" alt="" aria-hidden="true" />
+        MEMORY PURGE
+        <img src="/assets/source/widget/copy.svg" alt="" aria-hidden="true" />
+      </p>
+      <p class="redis-event__body">Ask the allocator to release memory.</p>
+      <a href="#" aria-label="Learn more">Learn more</a>
+    </div>
+  </article>
+
+  <article class="widget-card widget-card--skeleton" aria-hidden="true"></article>
+</section>
+
+<style>
+  .widget-set {
+    width: 304px;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .widget-card {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+
+  .widget-card--kafka,
+  .widget-card--redis {
+    width: 225px;
+    height: 232px;
+    padding: 4px 0 0;
+  }
+
+  .widget-card__head {
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 12px 4px 0 8px;
+    box-sizing: border-box;
+  }
+
+  .tool-logo {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 4px 4px 4px 6px;
+    border-radius: 4px;
+    position: relative;
+    top: 4px;
+  }
+
+  .tool-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .tool-logo strong {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  .tool-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    width: 80px;
+  }
+
+  .tool-actions img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .kafka-caption {
+    text-align: right;
+    padding: 11px 12px 7px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #9e9e9e;
+  }
+
+  .kafka-table {
+    width: 100%;
+  }
+
+  .kafka-table div {
+    height: 30px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .kafka-table div.is-active {
+    background: #f5f5f5;
+  }
+
+  .kafka-table span,
+  .kafka-table b {
+    font-size: 14px;
+    line-height: 16px;
+    color: #212121;
+  }
+
+  .kafka-table b {
+    font-weight: 500;
+    color: #9e9e9e;
+  }
+
+  .widget-card--redis {
+    padding-bottom: 12px;
+  }
+
+  .redis-metrics {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px 0;
+  }
+
+  .memory-ring {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, #fafafa 20px, transparent 20.5px),
+      conic-gradient(#6366f1 0 78%, #e0e0e0 78% 100%);
+  }
+
+  .memory-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .memory-percent {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #6b6df2;
+  }
+
+  .clear-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #6b6df2;
+    -webkit-mask: url("/assets/source/widget/Clear.svg") center / contain no-repeat;
+    mask: url("/assets/source/widget/Clear.svg") center / contain no-repeat;
+  }
+
+  .memory-label {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #9e9e9e;
+  }
+
+  .memory-total {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  .redis-event {
+    margin: 20px 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .redis-event__title {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #212121;
+    text-transform: uppercase;
+  }
+
+  .redis-event__title img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .redis-event__body {
+    margin: 0;
+    max-width: 178px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #9e9e9e;
+  }
+
+  .redis-event a {
+    color: #2528f4;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  .widget-card--skeleton {
+    width: 304px;
+    height: 184px;
+    background: #eeeeee;
+    border: 0;
+  }
+</style>

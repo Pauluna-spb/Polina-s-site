@@ -1,0 +1,68 @@
+---
+import Chip from "./Chip.astro";
+import "../../styles/figma-colors.css";
+
+interface ChipItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  class?: string;
+  item?: ChipItem;
+}
+
+const {
+  class: className = "",
+  item = { label: "About me", href: "#" },
+} = Astro.props;
+---
+
+<section class:list={["folder", className]} data-name="Folder" data-node-id="26:5341">
+  <svg
+    class="folder__shape"
+    viewBox="0 0 310 232"
+    aria-hidden="true"
+    focusable="false"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M0 34C0 15.2223 15.2223 0 34 0H113.246C123.024 0 132.33 4.24082 138.748 11.6325L149.704 24.25C156.163 31.6889 165.525 35.95 175.377 35.95H276C294.778 35.95 310 51.1723 310 69.95V198C310 216.778 294.778 232 276 232H34C15.2223 232 0 216.778 0 198V34Z"
+      class="figma-fill-mb-4"
+    />
+  </svg>
+
+  <div class="folder__content">
+    <Chip label={item.label} href={item.href ?? "#"} noHover={true} />
+  </div>
+</section>
+
+<style>
+  .folder {
+    width: 310px;
+    height: 232px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .folder__shape {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .folder__content {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  @media (max-width: 780px) {
+    .folder {
+      width: 100%;
+      max-width: 310px;
+      aspect-ratio: 310 / 232;
+      height: auto;
+    }
+  }
+</style>

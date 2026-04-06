@@ -1,0 +1,111 @@
+---
+type RagItemType = "folder" | "file";
+
+interface Props {
+  class?: string;
+  type?: RagItemType;
+  name?: string;
+  meta?: string;
+}
+
+const {
+  class: className = "",
+  type = "folder",
+  name = type === "folder" ? "Folder_test_1" : "File_test_1",
+  meta = type === "folder" ? "5 files" : "9.14 KB",
+} = Astro.props;
+---
+
+<article class:list={["rag-item", className]} data-node-id={type === "folder" ? "67:14855" : "67:14871"}>
+  <img
+    class="rag-item__icon"
+    src={type === "folder" ? "/assets/source/folder-dark.svg" : "/assets/source/Variant=Text.svg"}
+    alt=""
+    aria-hidden="true"
+  />
+
+  <div class="rag-item__name">
+    <p class="rag-item__title">{name}</p>
+    <p class="rag-item__meta">{meta}</p>
+  </div>
+
+  <div class="rag-item__actions">
+    <img class="rag-item__checkbox" src="/assets/source/CheckBox.svg" alt="" aria-hidden="true" />
+    <img class="rag-item__more" src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+  </div>
+</article>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+  .rag-item {
+    width: 232px;
+    height: 56px;
+    background: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(66, 66, 66, 0.15);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rag-item__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    position: absolute;
+    left: 12px;
+    top: 16px;
+  }
+
+  .rag-item__name {
+    position: absolute;
+    left: 48px;
+    top: 12px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .rag-item__title {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  .rag-item__meta {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+    color: #9e9e9e;
+  }
+
+  .rag-item__actions {
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+
+  .rag-item__checkbox {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .rag-item__more {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+  }
+</style>
