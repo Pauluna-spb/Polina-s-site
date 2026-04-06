@@ -1,0 +1,172 @@
+---
+interface Props {
+  class?: string;
+  orgName?: string;
+  orgInitials?: string;
+  text?: string;
+  buttonLabel?: string;
+  hover?: boolean;
+  active?: boolean;
+  compact?: boolean;
+}
+
+const {
+  class: className = "",
+  orgName = "Product Hatchery",
+  orgInitials = "PH",
+  text = "No report yet...",
+  buttonLabel = "Generate Report",
+  hover = false,
+  active = false,
+  compact = false,
+} = Astro.props;
+---
+
+<article
+  class:list={["report-card-empty", compact && "report-card-empty--compact", hover && "is-hover", active && "is-active", className]}
+  data-name="Wr1 set / item / empty"
+>
+  <div class="report-card-empty__head">
+    <div class="report-card-empty__org">
+      <span class="avatar">{orgInitials}</span>
+      <strong>{orgName}</strong>
+    </div>
+  </div>
+
+  <div class="report-card-empty__row">
+    <div>
+      <p class="empty-text">{text}</p>
+      <button type="button">{buttonLabel}</button>
+    </div>
+    <div class="empty-illustration" aria-hidden="true"></div>
+  </div>
+</article>
+
+<style>
+  .report-card-empty {
+    width: 310px;
+    min-height: 97px;
+    padding: 16px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(66, 66, 66, 0.25);
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #212121;
+  }
+
+  .report-card-empty.is-hover {
+    box-shadow: 0 5px 9px rgba(66, 66, 66, 0.25);
+  }
+
+  .report-card-empty.is-active {
+    border-color: #e32c16;
+    box-shadow: 0 2px 6px rgba(227, 44, 22, 0.25);
+  }
+
+  .report-card-empty.is-hover.is-active {
+    box-shadow: 0 5px 9px rgba(227, 44, 22, 0.25);
+  }
+
+  .report-card-empty__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .report-card-empty__org {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #424242;
+    color: #fafafa;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    line-height: 10px;
+    font-weight: 700;
+  }
+
+  .report-card-empty__row {
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .empty-text {
+    margin: 0 0 4px;
+    color: #9e9e9e;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  button {
+    border: 0;
+    border-radius: 4px;
+    height: 24px;
+    padding: 0 12px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fafafa;
+    background: linear-gradient(95deg, #e32c16 14%, #fa8c24 88%);
+    box-shadow: 0 2px 6px rgba(227, 44, 22, 0.25);
+  }
+
+  .empty-illustration {
+    width: 48px;
+    height: 48px;
+    background: url("/assets/source/Empty.svg") center / contain no-repeat;
+  }
+
+  .report-card-empty--compact {
+    min-height: 104px;
+    padding: 12px;
+  }
+
+  .report-card-empty--compact .report-card-empty__row {
+    margin-top: 6px;
+  }
+
+  .report-card-empty--compact .empty-text {
+    margin-bottom: 2px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .report-card-empty--compact button {
+    height: 22px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .report-card-empty--compact .empty-illustration {
+    width: 40px;
+    height: 40px;
+  }
+
+  .report-card-empty--compact .report-card-empty__org {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .report-card-empty--compact .avatar {
+    width: 22px;
+    height: 22px;
+    font-size: 8px;
+  }
+</style>

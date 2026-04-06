@@ -1,0 +1,77 @@
+---
+import ReportCardFull from "./ReportCardFull.astro";
+
+const cards = [
+  {
+    orgName: "Bunny Corp",
+    orgInitials: "BC",
+    title: "Bunny Corp Q1 Performance Report",
+    generatedOn: "27 Nov. 2025",
+    sprint: "Bunny Corp 286 (latest) Mar. 1 - Mar 14",
+    description:
+      "A cross-functional report covering growth, operations, and financial performance across Bunny Corp teams. Includes insights from Cute Faces Marketing, Carrot Finance, and Hopper Operations.",
+    tags: ["Retention", "Mobile App", "Security", "Risk"],
+    nextSteps:
+      "Resolve missing data inputs in Meadow Analytics · Re-align campaign priorities between Cute Faces Marketing",
+    progress: 28,
+  },
+  {
+    orgName: "Carrot Finance",
+    orgInitials: "CF",
+    title: "Carrot Finance Risk & Revenue Snapshot",
+    generatedOn: "28 Nov. 2025",
+    sprint: "Carrot Finance 119 (latest) Mar. 8 - Mar 21",
+    description:
+      "Performance summary across risk scoring, conversion funnels, and churn trends. Highlights anomalies in payment retries and onboarding drop-off.",
+    tags: ["Risk", "Revenue", "Funnels", "Churn"],
+    nextSteps: "Validate anomalies with Ops · Prioritize fixes for retry flow and onboarding copy",
+    progress: 41,
+  },
+  {
+    orgName: "Hopper Operations",
+    orgInitials: "HO",
+    title: "Hopper Ops Throughput Weekly Report",
+    generatedOn: "29 Nov. 2025",
+    sprint: "Hopper Ops 73 (latest) Mar. 4 - Mar 17",
+    description:
+      "Weekly readout of throughput, SLA adherence, and incident distribution by queue. Includes workload balancing suggestions for peak windows.",
+    tags: ["SLA", "Incidents", "Queues", "Load"],
+    nextSteps: "Apply queue rebalance rules · Monitor SLA drift for 48h after rollout",
+    progress: 64,
+  },
+];
+---
+
+<section class="report-cards-full-set" data-name="Wr1 set / full only" data-node-id="100:11538">
+  {
+    cards.map((card, index) => (
+      <div class="report-cards-full-set__item" style={`left: ${index * 170}px; z-index: ${index + 1};`}>
+        <ReportCardFull
+          orgName={card.orgName}
+          orgInitials={card.orgInitials}
+          title={card.title}
+          generatedOn={card.generatedOn}
+          sprint={card.sprint}
+          description={card.description}
+          tags={card.tags}
+          nextSteps={card.nextSteps}
+          progress={card.progress}
+          active={index === cards.length - 1}
+        />
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .report-cards-full-set {
+    position: relative;
+    width: 780px;
+    height: 346px;
+  }
+
+  .report-cards-full-set__item {
+    position: absolute;
+    top: 0;
+  }
+</style>
