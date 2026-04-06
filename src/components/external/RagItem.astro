@@ -1,11 +1,13 @@
 ---
 type RagItemType = "folder" | "file";
+type RagFileIconVariant = "text" | "table" | "json" | "presentation";
 
 interface Props {
   class?: string;
   type?: RagItemType;
   name?: string;
   meta?: string;
+  iconVariant?: RagFileIconVariant;
 }
 
 const {
@@ -13,13 +15,21 @@ const {
   type = "folder",
   name = type === "folder" ? "Folder_test_1" : "File_test_1",
   meta = type === "folder" ? "5 files" : "9.14 KB",
+  iconVariant = "text",
 } = Astro.props;
+
+const fileIconMap: Record<RagFileIconVariant, string> = {
+  text: "/assets/source/Variant=Text.svg",
+  table: "/assets/source/Variant=Table.svg",
+  json: "/assets/source/Variant=json.svg",
+  presentation: "/assets/source/Variant=presentation.svg",
+};
 ---
 
 <article class:list={["rag-item", className]} data-node-id={type === "folder" ? "67:14855" : "67:14871"}>
   <img
     class="rag-item__icon"
-    src={type === "folder" ? "/assets/source/folder-dark.svg" : "/assets/source/Variant=Text.svg"}
+    src={type === "folder" ? "/assets/source/folder-dark.svg" : fileIconMap[iconVariant]}
     alt=""
     aria-hidden="true"
   />
@@ -39,7 +49,7 @@ const {
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
   .rag-item {
-    width: 232px;
+    width: 212px;
     height: 56px;
     background: #fafafa;
     border-radius: 4px;
@@ -62,7 +72,7 @@ const {
     position: absolute;
     left: 48px;
     top: 12px;
-    width: 160px;
+    width: 140px;
     display: flex;
     flex-direction: column;
     gap: 2px;

@@ -312,12 +312,14 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
       </section>
 
       <section class="items-row">
-        <RagItem type="file" />
-        <RagItem type="file" />
-        <RagItem type="file" />
-        <RagItem type="file" />
-        <RagItem type="file" />
+        <RagItem type="file" iconVariant="text" name="Requirements" />
+        <RagItem type="file" iconVariant="table" name="Metrics Table" />
+        <RagItem type="file" iconVariant="json" name="RAG Config" />
+        <RagItem type="file" iconVariant="text" name="Prompt Guide" />
+        <RagItem type="file" iconVariant="table" name="Release Plan" />
       </section>
+
+      <div style="height: 80px;" aria-hidden="true"></div>
 
       <section class="tools-area">
         <WidgetJiraSet />
