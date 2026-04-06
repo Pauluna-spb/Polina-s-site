@@ -11,6 +11,8 @@
   --figma-y: #f5e875;
   --figma-g: #007d9b;
   --figma-g-0-5: #c9eaec;
+  --figma-r: #e32f4f;
+  --figma-bg: #ffffff;
 }
 
 /* Figma color styles */
@@ -64,6 +66,14 @@
 
 .figma-bg-g-0-5 {
   background-color: var(--figma-g-0-5);
+}
+
+.figma-bg-r {
+  background-color: var(--figma-r);
+}
+
+.figma-bg-bg {
+  background-color: var(--figma-bg);
 }
 
 .figma-border-g {

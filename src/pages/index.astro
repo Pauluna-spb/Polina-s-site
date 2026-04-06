@@ -9,6 +9,8 @@ import CellFigma from "../components/portfolio/CellFigma.astro";
 import CellIcon from "../components/portfolio/CellIcon.astro";
 import CellProgress from "../components/portfolio/CellProgress.astro";
 import CellNotes from "../components/portfolio/CellNotes.astro";
+import CellKorea from "../components/portfolio/CellKorea.astro";
+import CellCat from "../components/portfolio/CellCat.astro";
 import ChatRagCard from "../components/external/ChatRagCard.astro";
 import RagItem from "../components/external/RagItem.astro";
 import WorkspaceSidebarCard from "../components/external/WorkspaceSidebarCard.astro";
@@ -35,7 +37,7 @@ import TeamDirectoryCard from "../components/external/TeamDirectoryCard.astro";
       body {
         margin: 0;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background: #f4f4f2;
+        background: #fdfdfd;
         color: #0d0c0c;
       }
 
@@ -135,6 +137,10 @@ import TeamDirectoryCard from "../components/external/TeamDirectoryCard.astro";
         <div class="progress-cells">
           <CellProgress size="M" />
           <CellProgress size="S" />
+        </div>
+        <div class="cells">
+          <CellKorea />
+          <CellCat />
         </div>
         <CellNotes />
         <div class="external-zone">

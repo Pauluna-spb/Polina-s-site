@@ -1,0 +1,60 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<article class:list={["cell-korea figma-bg-r", className]} data-name="CellKorea" data-node-id="101:10287">
+  <p class="cell-korea__text figma-text-body figma-text-contrast">
+    I studied design
+    <br />
+    and animation
+    <br />
+    in South Korea.
+  </p>
+
+  <img class="cell-korea__food" src="/assets/source/BBB.svg" alt="" aria-hidden="true" />
+  <img class="cell-korea__flag" src="/assets/source/Flag.svg" alt="" aria-hidden="true" />
+</article>
+
+<style>
+  .cell-korea {
+    width: 225px;
+    height: 232px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .cell-korea__text {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    line-height: 1.16;
+  }
+
+  .cell-korea__food {
+    width: 126px;
+    height: 109px;
+    object-fit: contain;
+    position: absolute;
+    right: -10px;
+    top: 52px;
+  }
+
+  .cell-korea__flag {
+    width: 99px;
+    height: 123px;
+    object-fit: contain;
+    position: absolute;
+    left: 20px;
+    bottom: -4px;
+  }
+</style>

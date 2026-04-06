@@ -1,0 +1,87 @@
+---
+import Logo from "../components/portfolio/Logo.astro";
+import ProfileCard from "../components/portfolio/ProfileCard.astro";
+import Chip from "../components/portfolio/Chip.astro";
+import Cell from "../components/portfolio/Cell.astro";
+
+const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Portfolio";
+const siteRole = import.meta.env.PUBLIC_SITE_ROLE ?? "Designer";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <style>
+      body {
+        margin: 0;
+        background: #f4f4f2;
+        color: #0d0c0c;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .hero p {
+        margin: 0;
+        color: #616161;
+      }
+
+      .chips {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <Logo width={230} height={74} />
+
+      <section class="hero">
+        <h1>{siteTitle}</h1>
+        <p>{siteRole}</p>
+        <div class="chips">
+          <Chip label="About me" />
+          <Chip label="Cases" />
+          <Chip label="Contacts" />
+        </div>
+      </section>
+
+      <ProfileCard />
+
+      <section class="grid">
+        <Cell size="M" />
+        <Cell size="L" />
+        <Cell size="S" />
+      </section>
+    </main>
+  </body>
+</html>

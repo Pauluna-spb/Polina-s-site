@@ -1,0 +1,325 @@
+---
+import Logo from "../components/portfolio/Logo.astro";
+import ProfileCard from "../components/portfolio/ProfileCard.astro";
+import Chip from "../components/portfolio/Chip.astro";
+import FolderChips from "../components/portfolio/FolderChips.astro";
+import Cell from "../components/portfolio/Cell.astro";
+import CellFigma from "../components/portfolio/CellFigma.astro";
+import CellIcon from "../components/portfolio/CellIcon.astro";
+import CellNotes from "../components/portfolio/CellNotes.astro";
+import CellProgress from "../components/portfolio/CellProgress.astro";
+import InsightCell from "../components/portfolio/InsightCell.astro";
+import CellKorea from "../components/portfolio/CellKorea.astro";
+import CellCat from "../components/portfolio/CellCat.astro";
+
+import ReportCardsSet from "../components/external/ReportCardsSet.astro";
+import WorkspaceSidebarCard from "../components/external/WorkspaceSidebarCard.astro";
+import ChatRagCard from "../components/external/ChatRagCard.astro";
+import RagItem from "../components/external/RagItem.astro";
+import WidgetToolSet from "../components/external/WidgetToolSet.astro";
+import WidgetJiraSet from "../components/external/WidgetJiraSet.astro";
+import WidgetRoo from "../components/external/WidgetRoo.astro";
+import WidgetS3 from "../components/external/WidgetS3.astro";
+import ToolJiraEtiquette from "../components/external/ToolJiraEtiquette.astro";
+import "../styles/figma-colors.css";
+
+const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <style>
+      body {
+        margin: 0;
+        background: #fdfdfd;
+        color: #212121;
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        width: 1100px;
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .mail {
+        font-size: 10px;
+        color: #616161;
+      }
+
+      .hero {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 52px;
+      }
+
+      .chips {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .section {
+        margin-top: 24px;
+      }
+
+      .top-grid {
+        display: flex;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .top-grid-left {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .top-grid-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .work-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 310px 225px 225px 310px;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .stack-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .full-row {
+        margin-top: 10px;
+      }
+
+      .items-row {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(5, 212px);
+        gap: 10px;
+      }
+
+      .external-band {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 310px 310px 310px 140px;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .tools-area {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 310px 310px;
+        gap: 10px;
+      }
+
+      .tool-wide :global(.tool-jira) {
+        width: 310px;
+      }
+
+      .final-row {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 310px 310px 225px 225px;
+        gap: 10px;
+      }
+
+      .footer {
+        margin-top: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .footer-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10px;
+        color: #616161;
+      }
+
+      .footer-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: #616161;
+        font-size: 10px;
+      }
+
+      .footer-links a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1160px) {
+        main {
+          width: auto;
+          padding: 20px 16px 56px;
+        }
+
+        .work-grid,
+        .items-row,
+        .external-band,
+        .tools-area,
+        .final-row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <Logo width={100} height={32} />
+        <p class="mail">paulinaspp@gmail.com</p>
+      </header>
+
+      <section class="hero">
+        <ProfileCard />
+        <div class="chips">
+          <Chip label="About me" />
+          <Chip label="Reporting System" />
+          <Chip label="RAG" />
+          <Chip label="Dashboard" />
+          <Chip label="Other cases" />
+        </div>
+      </section>
+
+      <section class="section top-grid">
+        <div class="top-grid-left">
+          <div class="top-grid-row">
+            <FolderChips item={{ label: "About me", href: "#" }} />
+            <Cell size="S" />
+            <CellKorea />
+          </div>
+          <div class="top-grid-row top-grid-row--bottom">
+            <Cell class="l2" size="L2" />
+            <CellCat class="cat" />
+            <Cell class="m" size="M" />
+          </div>
+        </div>
+        <Cell class="l" size="L" />
+      </section>
+
+      <section class="work-grid">
+        <div class="stack-col">
+          <FolderChips item={{ label: "Reporting System", href: "#" }} />
+          <CellIcon variant="default" />
+        </div>
+        <div class="stack-col">
+          <InsightCell variant="default" />
+          <CellFigma />
+        </div>
+        <div class="stack-col">
+          <CellFigma linkLabel="Detailed Figma file" />
+          <CellIcon variant="text" />
+        </div>
+        <div class="stack-col">
+          <WorkspaceSidebarCard />
+        </div>
+      </section>
+
+      <section class="full-row">
+        <ReportCardsSet />
+      </section>
+
+      <section class="section">
+        <ChatRagCard />
+      </section>
+
+      <section class="items-row">
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+      </section>
+
+      <section class="items-row">
+        <RagItem type="file" />
+        <RagItem type="file" />
+        <RagItem type="file" />
+        <RagItem type="file" />
+        <RagItem type="file" />
+      </section>
+
+      <section class="external-band">
+        <div class="stack-col">
+          <FolderChips item={{ label: "RAG", href: "#" }} />
+          <CellIcon variant="default" />
+        </div>
+        <WidgetToolSet />
+        <WidgetRoo />
+        <CellNotes />
+      </section>
+
+      <section class="tools-area">
+        <WidgetJiraSet />
+        <WidgetS3 />
+      </section>
+
+      <section class="tools-area">
+        <div class="tool-wide">
+          <ToolJiraEtiquette />
+        </div>
+        <div class="tool-wide">
+          <ToolJiraEtiquette />
+        </div>
+        <div class="tool-wide">
+          <ToolJiraEtiquette />
+        </div>
+        <div class="tool-wide">
+          <ToolJiraEtiquette />
+        </div>
+      </section>
+
+      <section class="final-row">
+        <FolderChips item={{ label: "Reporting system", href: "#" }} />
+        <CellProgress size="M" />
+        <CellProgress size="S" title={"LinkedIn Mobile\nRedesign"} />
+        <CellProgress size="S" title={"OpenFaqs"} />
+      </section>
+
+      <footer class="footer">
+        <Logo width={100} height={32} />
+        <div class="footer-meta">
+          <p class="footer-links">
+            <a href="#">Download portfolio</a>
+            <span>•</span>
+            <a href="https://www.linkedin.com/in/polina-elpatevskaia-3b0167198/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          </p>
+          <span>•</span>
+          <span>paulinaspp@gmail.com</span>
+          <span>•</span>
+          <span>2026</span>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

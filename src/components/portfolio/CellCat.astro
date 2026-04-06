@@ -1,0 +1,52 @@
+---
+import "../../styles/figma-typography.css";
+import "../../styles/figma-colors.css";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<article class:list={["cell-cat figma-bg-y2 figma-border-y", className]} data-name="CellCat" data-node-id="101:10286">
+  <p class="cell-cat__text figma-body-2 figma-text-secondary">
+    I work end-to-end.
+    <br />
+    From early ideas
+    <br />
+    to working MVPs.
+  </p>
+
+  <img class="cell-cat__img" src="/assets/source/Cat%20Laptop.svg" alt="" aria-hidden="true" />
+</article>
+
+<style>
+  .cell-cat {
+    width: 225px;
+    height: 232px;
+    border: 1px solid;
+    border-color: var(--figma-y);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .cell-cat__text {
+    margin: 0;
+    position: absolute;
+    top: 19px;
+    left: 19px;
+    line-height: 1.12;
+  }
+
+  .cell-cat__img {
+    width: 225px;
+    height: 161px;
+    object-fit: cover;
+    position: absolute;
+    left: -1px;
+    bottom: 0;
+  }
+</style>
