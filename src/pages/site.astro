@@ -27,7 +27,9 @@ import "../styles/figma-colors.css";
 import "../styles/site-page.css";
 
 const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
-const ogPreviewUrl = "/og-preview.png";
+const baseUrl = import.meta.env.BASE_URL;
+const iconUrl = `${baseUrl}IconP.svg`;
+const ogPreviewUrl = `${baseUrl}og-preview.png`;
 ---
 
 <!doctype html>
@@ -35,7 +37,7 @@ const ogPreviewUrl = "/og-preview.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/IconP.svg" />
+    <link rel="icon" type="image/svg+xml" href={iconUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:image" content={ogPreviewUrl} />
