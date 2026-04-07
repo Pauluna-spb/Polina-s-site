@@ -26,6 +26,7 @@ import WidgetS3 from "../components/external/WidgetS3.astro";
 import "../styles/figma-colors.css";
 
 const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
+const ogPreviewUrl = "/og-preview.png";
 ---
 
 <!doctype html>
@@ -33,6 +34,14 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/IconP.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:image" content={ogPreviewUrl} />
+    <meta property="og:image:secure_url" content={ogPreviewUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:image" content={ogPreviewUrl} />
     <title>{siteTitle}</title>
     <style>
       body {
@@ -290,19 +299,19 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
       <section class="hero">
         <ProfileCard />
         <div class="chips">
-          <Chip label="About me" />
-          <Chip label="Reporting System" />
-          <Chip label="RAG" />
-          <Chip label="Dashboard" />
-          <Chip label="Other cases" />
+          <Chip label="About me" href="#about-me" />
+          <Chip label="Reporting System" href="#reporting-system" />
+          <Chip label="RAG" href="#rag" />
+          <Chip label="Dashboard" href="#dashboard" />
+          <Chip label="Other cases" href="#other-cases" />
         </div>
       </section>
 
-      <section class="section top-block">
+      <section id="about-me" class="section top-block">
         <div class="top-grid">
           <div class="top-grid-left">
             <div class="top-grid-row">
-              <FolderChips item={{ label: "About me", href: "#" }} />
+              <FolderChips item={{ label: "About me", href: "#about-me" }} />
               <Cell size="S" />
               <CellKorea />
             </div>
@@ -319,12 +328,12 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
         </div>
       </section>
 
-      <section class="reporting-grid">
+      <section id="reporting-system" class="reporting-grid">
         <div class="reporting-left">
           <div class="reporting-row">
-            <FolderChips item={{ label: "Reporting System", href: "#" }} />
+            <FolderChips item={{ label: "Reporting System", href: "#reporting-system" }} />
             <InsightCell variant="default" />
-            <CellFigma />
+            <CellFigma href="https://www.figma.com/design/i852bQ8PXlfPXboCudQ1yx/Polina%22s-Cases?node-id=0-1&t=5uTPQ5GZFhKP9bDc-1" />
           </div>
           <ReportCardsFullSet />
         </div>
@@ -336,15 +345,15 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
         </div>
       </section>
 
-      <section class="next-row">
+      <section id="rag" class="next-row">
         <div class="next-row-left">
           <div class="next-row-left-col">
-            <FolderChips item={{ label: "RAG", href: "#" }} />
+            <FolderChips item={{ label: "RAG", href: "#rag" }} />
             <CellIcon variant="default" />
           </div>
           <div class="next-row-left-col">
             <InsightCell variant="rag" />
-            <CellFigma />
+            <CellFigma href="https://www.figma.com/design/i852bQ8PXlfPXboCudQ1yx/Polina%22s-Cases?node-id=16-5739&t=5uTPQ5GZFhKP9bDc-1" />
           </div>
         </div>
         <ChatRagCard />
@@ -368,8 +377,8 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
 
       <div style="height: 80px;" aria-hidden="true"></div>
 
-      <section class="final-case-row">
-        <FolderChips item={{ label: "Dashboard", href: "#" }} />
+      <section id="dashboard" class="final-case-row">
+        <FolderChips item={{ label: "Dashboard", href: "#dashboard" }} />
         <CellIcon variant="text" />
         <ToolRedisCell />
         <ToolKafkaCell />
@@ -398,9 +407,9 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
         </div>
       </section>
 
-      <section class="last-row">
+      <section id="other-cases" class="last-row">
         <FolderChips
-          items={[{ label: "In progress", href: "#" }, { label: "Other cases", href: "#" }]}
+          items={[{ label: "In progress", href: "#other-cases" }, { label: "Other cases", href: "#other-cases" }]}
           chipGap={4}
         />
         <CellProgress size="M" title={"Team Directory\n& Access Management\nPlatform"} />
@@ -423,5 +432,44 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
         </div>
       </footer>
     </main>
+    <script>
+      const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+      const smoothScrollTo = (targetY, duration = 1100) => {
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        let startTime = null;
+
+        const step = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeInOutCubic(progress);
+
+          window.scrollTo(0, startY + distance * eased);
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+
+        window.requestAnimationFrame(step);
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const hash = link.getAttribute("href");
+          if (!hash || hash === "#") return;
+
+          const target = document.querySelector(hash);
+          if (!target) return;
+
+          event.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY;
+          smoothScrollTo(top, 1100);
+          history.replaceState(null, "", hash);
+        });
+      });
+    </script>
   </body>
 </html>
