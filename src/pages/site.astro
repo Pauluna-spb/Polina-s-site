@@ -30,6 +30,7 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
 const baseUrl = import.meta.env.BASE_URL;
 const iconUrl = `${baseUrl}IconP.svg`;
 const ogPreviewUrl = `${baseUrl}og-preview.png`;
+const smoothScrollScriptUrl = `${baseUrl}scripts/site-smooth-scroll.js`;
 ---
 
 <!doctype html>
@@ -188,6 +189,6 @@ const ogPreviewUrl = `${baseUrl}og-preview.png`;
         </div>
       </footer>
     </main>
-    <script type="module" src="/scripts/site-smooth-scroll.js"></script>
+    <script type="module" src={smoothScrollScriptUrl}></script>
   </body>
 </html>
