@@ -44,6 +44,16 @@ const ogPreviewUrl = "/og-preview.png";
     <meta name="twitter:image" content={ogPreviewUrl} />
     <title>{siteTitle}</title>
     <style>
+      :root {
+        --layout-width: 1100px;
+        --grid-gap: 10px;
+        --space-xl: 80px;
+        --w-310: 310px;
+        --w-225: 225px;
+        --w-140: 140px;
+        --h-card: 232px;
+      }
+
       body {
         margin: 0;
         background: #fdfdfd;
@@ -52,7 +62,7 @@ const ogPreviewUrl = "/og-preview.png";
       }
 
       main {
-        width: 1100px;
+        width: var(--layout-width);
         margin: 0 auto;
         padding: 32px 0 56px;
       }
@@ -90,24 +100,24 @@ const ogPreviewUrl = "/og-preview.png";
       .top-block {
         position: relative;
         min-height: 716px;
-        margin-bottom: 80px;
+        margin-bottom: var(--space-xl);
       }
 
       .top-grid {
         display: flex;
-        gap: 10px;
+        gap: var(--grid-gap);
         align-items: start;
       }
 
       .top-grid-left {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .top-grid-row {
         display: flex;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .top-grid-xl {
@@ -121,7 +131,7 @@ const ogPreviewUrl = "/og-preview.png";
         margin-top: 0;
         display: grid;
         grid-template-columns: 780px 310px;
-        gap: 10px;
+        gap: var(--grid-gap);
         align-items: start;
       }
 
@@ -136,18 +146,18 @@ const ogPreviewUrl = "/og-preview.png";
       }
 
       .reporting-empty-wrap {
-        margin-top: 10px;
+        margin-top: var(--grid-gap);
       }
 
       .reporting-left {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .reporting-row {
         display: flex;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .full-row {
@@ -155,71 +165,79 @@ const ogPreviewUrl = "/og-preview.png";
       }
 
       .next-row {
-        margin-top: 80px;
+        margin-top: var(--space-xl);
         display: flex;
-        gap: 10px;
+        gap: var(--grid-gap);
         align-items: flex-start;
       }
 
       .next-row-left {
         display: flex;
-        gap: 10px;
+        gap: var(--grid-gap);
         align-items: flex-start;
       }
 
       .next-row-left-col {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .items-row {
-        margin-top: 10px;
+        margin-top: var(--grid-gap);
         display: grid;
         grid-template-columns: repeat(5, 212px);
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .final-case-row {
+        margin-top: var(--space-xl);
         display: grid;
-        grid-template-columns: 310px 310px 225px 225px;
-        gap: 10px;
+        grid-template-columns: var(--w-310) var(--w-310) var(--w-225) var(--w-225);
+        gap: var(--grid-gap);
       }
 
       .next-case-layout {
-        margin-top: 10px;
+        margin-top: var(--grid-gap);
         display: grid;
-        grid-template-columns: 310px 310px 310px 140px;
-        grid-template-rows: 232px 146px;
-        gap: 10px;
+        grid-template-columns: var(--w-310) var(--w-310) var(--w-310) var(--w-140);
+        grid-template-rows: var(--h-card) 146px;
+        grid-template-areas:
+          "jira roo s3 notes"
+          "jira tools-left tools-right notes";
+        gap: var(--grid-gap);
         align-items: start;
       }
 
       .next-case-jira {
-        grid-column: 1;
-        grid-row: 1 / span 2;
+        grid-area: jira;
       }
 
       .next-case-roo {
-        grid-column: 2;
-        grid-row: 1;
+        grid-area: roo;
       }
 
       .next-case-s3 {
-        grid-column: 3;
-        grid-row: 1;
+        grid-area: s3;
       }
 
       .next-case-notes {
-        grid-column: 4;
-        grid-row: 1 / span 2;
+        grid-area: notes;
       }
 
       .tool-stack {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: var(--grid-gap);
         align-self: start;
+      }
+
+      .tool-stack--left {
+        grid-area: tools-left;
+      }
+
+      .tool-stack--right {
+        grid-area: tools-right;
       }
 
       .tool-stack :global(.tool-jira) {
@@ -227,10 +245,10 @@ const ogPreviewUrl = "/og-preview.png";
       }
 
       .last-row {
-        margin-top: 80px;
+        margin-top: var(--space-xl);
         display: grid;
         grid-template-columns: 310px 1.486fr 1fr 1fr;
-        gap: 10px;
+        gap: var(--grid-gap);
       }
 
       .last-row :global(.cell-progress) {
@@ -375,8 +393,6 @@ const ogPreviewUrl = "/og-preview.png";
         <RagItem type="file" iconVariant="table" name="Release Plan" />
       </section>
 
-      <div style="height: 80px;" aria-hidden="true"></div>
-
       <section id="dashboard" class="final-case-row">
         <FolderChips item={{ label: "Dashboard", href: "#dashboard" }} />
         <CellIcon variant="text" />
@@ -397,11 +413,11 @@ const ogPreviewUrl = "/og-preview.png";
         <div class="next-case-notes">
           <CellNotes />
         </div>
-        <div class="tool-stack">
+        <div class="tool-stack tool-stack--left">
           <ToolJiraEtiquette title="Carrot Cache" avatarSrc="/assets/source/Plug2.svg" />
           <ToolJiraEtiquette title="Burrow Streams" avatarSrc="/assets/source/Plug3.svg" />
         </div>
-        <div class="tool-stack">
+        <div class="tool-stack tool-stack--right">
           <ToolJiraEtiquette title="Fluffy Storage" avatarSrc="/assets/source/Plug4.svg" />
           <ToolJiraEtiquette title="Hop Tracker" avatarSrc="/assets/source/Plug.svg" />
         </div>
