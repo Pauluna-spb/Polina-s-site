@@ -28,9 +28,10 @@ import "../styles/site-page.css";
 
 const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
 const baseUrl = import.meta.env.BASE_URL;
-const iconUrl = `${baseUrl}IconP.svg`;
-const ogPreviewUrl = `${baseUrl}og-preview.png`;
-const smoothScrollScriptUrl = `${baseUrl}scripts/site-smooth-scroll.js`;
+const basePath = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+const iconUrl = `${basePath}IconP.svg`;
+const ogPreviewUrl = `${basePath}og-preview.png`;
+const smoothScrollScriptUrl = `${basePath}scripts/site-smooth-scroll.js`;
 ---
 
 <!doctype html>
