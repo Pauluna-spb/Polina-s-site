@@ -1,0 +1,124 @@
+---
+---
+
+<article class="widget-card widget-card--kafka" data-name="Widget / Kafka" data-node-id="80:6569">
+  <header class="widget-card__head">
+    <div class="tool-logo">
+      <img src="/assets/source/widget/Apache Kafka 1.svg" alt="Kafka" />
+      <strong>Kafka</strong>
+    </div>
+    <div class="tool-actions">
+      <img src="/assets/source/widget/Sours.svg" alt="" aria-hidden="true" />
+      <img src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+      <img src="/assets/source/widget/drag_indicator.svg" alt="" aria-hidden="true" />
+    </div>
+  </header>
+
+  <div class="kafka-caption">replicas</div>
+
+  <div class="kafka-table">
+    <div><span>broadcast</span><b>3</b></div>
+    <div class="is-active"><span>dropbox</span><b>2</b></div>
+    <div><span>private</span><b>1</b></div>
+  </div>
+</article>
+
+<style>
+  .widget-card {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #ffffff;
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .widget-card--kafka {
+    width: 225px;
+    height: 232px;
+    padding: 4px 0 0;
+  }
+
+  .widget-card__head {
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 12px 4px 0 8px;
+    box-sizing: border-box;
+  }
+
+  .tool-logo {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 4px 4px 4px 6px;
+    border-radius: 4px;
+    position: relative;
+    top: 4px;
+  }
+
+  .tool-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .tool-logo strong {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  .tool-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    width: 80px;
+  }
+
+  .tool-actions img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .kafka-caption {
+    text-align: right;
+    padding: 11px 12px 7px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #9e9e9e;
+  }
+
+  .kafka-table {
+    width: 100%;
+  }
+
+  .kafka-table div {
+    height: 30px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .kafka-table div.is-active {
+    background: #f5f5f5;
+  }
+
+  .kafka-table span,
+  .kafka-table b {
+    font-size: 14px;
+    line-height: 16px;
+    color: #212121;
+  }
+
+  .kafka-table b {
+    font-weight: 500;
+    color: #9e9e9e;
+  }
+</style>
