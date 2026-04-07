@@ -8,18 +8,21 @@ interface Props {
   class?: string;
   size?: Size;
   title?: string;
+  width?: number;
 }
 
 const {
   class: className = "",
   size = "M",
   title = "Team Directory\n& Access Management\nPlatform",
+  width,
 } = Astro.props;
 ---
 
 <article
   class:list={["cell-progress figma-bg-y2", size === "S" ? "cell-progress--s" : "cell-progress--m", className]}
   data-node-id={size === "S" ? "98:10606" : "98:10604"}
+  style={width ? `--cell-progress-width: ${width}px;` : undefined}
 >
   <h3
     class:list={[
@@ -43,11 +46,11 @@ const {
   }
 
   .cell-progress--m {
-    width: 310px;
+    width: var(--cell-progress-width, 310px);
   }
 
   .cell-progress--s {
-    width: 225px;
+    width: var(--cell-progress-width, 225px);
   }
 
   .cell-progress__title {
@@ -57,6 +60,7 @@ const {
     left: 19px;
     white-space: pre-line;
     max-width: calc(100% - 38px);
+    opacity: 0.6;
   }
 
   .cell-progress__title--s {

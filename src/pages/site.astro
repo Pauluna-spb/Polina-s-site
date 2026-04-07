@@ -7,6 +7,7 @@ import Cell from "../components/portfolio/Cell.astro";
 import CellFigma from "../components/portfolio/CellFigma.astro";
 import CellIcon from "../components/portfolio/CellIcon.astro";
 import CellNotes from "../components/portfolio/CellNotes.astro";
+import CellProgress from "../components/portfolio/CellProgress.astro";
 import InsightCell from "../components/portfolio/InsightCell.astro";
 import CellKorea from "../components/portfolio/CellKorea.astro";
 import CellCat from "../components/portfolio/CellCat.astro";
@@ -216,6 +217,22 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
         width: 310px;
       }
 
+      .last-row {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 310px 1.486fr 1fr 1fr;
+        gap: 10px;
+      }
+
+      .last-row :global(.cell-progress) {
+        width: 100%;
+      }
+
+      .last-row :global(.cell-progress__title--s) {
+        width: auto;
+        max-width: calc(100% - 38px);
+      }
+
       .footer {
         margin-top: 90px;
         display: flex;
@@ -372,13 +389,23 @@ const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
           <CellNotes />
         </div>
         <div class="tool-stack">
-          <ToolJiraEtiquette />
-          <ToolJiraEtiquette />
+          <ToolJiraEtiquette title="Carrot Cache" avatarSrc="/assets/source/Plug2.svg" />
+          <ToolJiraEtiquette title="Burrow Streams" avatarSrc="/assets/source/Plug3.svg" />
         </div>
         <div class="tool-stack">
-          <ToolJiraEtiquette />
-          <ToolJiraEtiquette />
+          <ToolJiraEtiquette title="Fluffy Storage" avatarSrc="/assets/source/Plug4.svg" />
+          <ToolJiraEtiquette title="Hop Tracker" avatarSrc="/assets/source/Plug.svg" />
         </div>
+      </section>
+
+      <section class="last-row">
+        <FolderChips
+          items={[{ label: "In progress", href: "#" }, { label: "Other cases", href: "#" }]}
+          chipGap={4}
+        />
+        <CellProgress size="M" title={"Team Directory\n& Access Management\nPlatform"} />
+        <CellProgress size="S" title={"LinkedIn Mobile\nRedesign"} />
+        <CellProgress size="S" title={"OpenFaaS"} />
       </section>
 
       <footer class="footer">

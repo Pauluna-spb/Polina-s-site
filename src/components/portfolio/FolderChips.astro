@@ -10,15 +10,26 @@ interface ChipItem {
 interface Props {
   class?: string;
   item?: ChipItem;
+  items?: ChipItem[];
+  chipGap?: number;
 }
 
 const {
   class: className = "",
   item = { label: "About me", href: "#" },
+  items,
+  chipGap = 10,
 } = Astro.props;
+
+const chips = items?.length ? items : [item];
 ---
 
-<section class:list={["folder", className]} data-name="Folder" data-node-id="26:5341">
+<section
+  class:list={["folder", className]}
+  data-name="Folder"
+  data-node-id="26:5341"
+  style={`--folder-chip-gap: ${chipGap}px;`}
+>
   <svg
     class="folder__shape"
     viewBox="0 0 310 232"
@@ -33,7 +44,11 @@ const {
   </svg>
 
   <div class="folder__content">
-    <Chip label={item.label} href={item.href ?? "#"} noHover={true} />
+    {
+      chips.map((chip) => (
+        <Chip label={chip.label} href={chip.href ?? "#"} noHover={true} />
+      ))
+    }
   </div>
 </section>
 
@@ -55,6 +70,10 @@ const {
     position: absolute;
     right: 20px;
     bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--folder-chip-gap, 10px);
   }
 
   @media (max-width: 780px) {

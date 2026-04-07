@@ -1,10 +1,19 @@
 ---
+interface Props {
+  title?: string;
+  avatarSrc?: string;
+}
+
+const {
+  title = "Jira Etiquette",
+  avatarSrc = "/assets/source/Plug.svg",
+} = Astro.props;
 ---
 
 <article class="tool-jira" data-name="Tool" data-node-id="80:9468">
   <div class="tool-jira__left">
-    <img class="avatar" src="/assets/source/Plug.svg" alt="" aria-hidden="true" />
-    <strong>Jira Etiquette</strong>
+    <img class="avatar" src={avatarSrc} alt="" aria-hidden="true" />
+    <strong>{title}</strong>
   </div>
   <div class="tool-jira__right">
     <img class="star" src="/assets/source/star_2.svg" alt="" aria-hidden="true" />
