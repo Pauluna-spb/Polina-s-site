@@ -178,7 +178,7 @@ main {
 .tool-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--grid-gap);
+  gap: 10px;
   align-self: start;
 }
 
@@ -190,7 +190,7 @@ main {
   grid-area: tools-right;
 }
 
-.tool-stack :global(.tool-jira) {
+.tool-stack .tool-jira {
   width: 310px;
 }
 
@@ -201,11 +201,11 @@ main {
   gap: var(--grid-gap);
 }
 
-.last-row :global(.cell-progress) {
+.last-row .cell-progress {
   width: 100%;
 }
 
-.last-row :global(.cell-progress__title--s) {
+.last-row .cell-progress__title--s {
   width: auto;
   max-width: calc(100% - 38px);
 }
