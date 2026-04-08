@@ -3,7 +3,8 @@
 Portfolio website built with Astro and component-based UI blocks.
 
 The project includes:
-- A main portfolio page at `/site`
+- A main portfolio page at `/`
+- A compatibility redirect at `/site` (redirects to `/`)
 - Reusable portfolio components in `src/components/portfolio`
 - External product/demo components in `src/components/external`
 - Static assets in `public/assets`
@@ -48,8 +49,8 @@ src/
     portfolio/   # portfolio design system components
     external/    # external product/demo components
   pages/
-    index.astro  # component showcase sandbox
-    site.astro   # main portfolio page
+    index.astro  # main portfolio page
+    site.astro   # compatibility redirect to /
 public/
   assets/        # images, icons, source files
 ```
