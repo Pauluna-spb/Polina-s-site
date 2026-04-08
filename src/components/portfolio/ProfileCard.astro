@@ -22,7 +22,7 @@ const {
   location = "Serbia • Open to relocation",
   photoSrc = "/assets/photo.png",
   photoAlt = "Portrait of Polina Elpatevskaia",
-  portfolioHref = "#",
+  portfolioHref = "/assets/files/Polina_Elpatevskaia_CV.pdf",
   linkedinHref = "https://www.linkedin.com/in/polina-elpatevskaia-3b0167198/",
 } = Astro.props;
 
@@ -66,7 +66,9 @@ const descriptionLines = description.split("\n");
           alt=""
           aria-hidden="true"
         />
-        <a href={portfolioHref}><span class="profile-card__link-text">Download portfolio</span></a>
+        <a href={portfolioHref} download="Polina_Elpatevskaia_CV.pdf">
+          <span class="profile-card__link-text">Download portfolio</span>
+        </a>
         <span class="profile-card__separator" aria-hidden="true">•</span>
         <a href={linkedinHref} target="_blank" rel="noopener noreferrer">
           <span class="profile-card__link-text">Linkedin</span>
