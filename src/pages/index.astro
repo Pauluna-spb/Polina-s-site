@@ -1,5 +1,37 @@
 ---
-const targetPath = "site/";
+import Logo from "../components/portfolio/Logo.astro";
+import ProfileCard from "../components/portfolio/ProfileCard.astro";
+import Chip from "../components/portfolio/Chip.astro";
+import FolderChips from "../components/portfolio/FolderChips.astro";
+import Cell from "../components/portfolio/Cell.astro";
+import CellFigma from "../components/portfolio/CellFigma.astro";
+import CellIcon from "../components/portfolio/CellIcon.astro";
+import CellNotes from "../components/portfolio/CellNotes.astro";
+import CellProgress from "../components/portfolio/CellProgress.astro";
+import InsightCell from "../components/portfolio/InsightCell.astro";
+import CellKorea from "../components/portfolio/CellKorea.astro";
+import CellCat from "../components/portfolio/CellCat.astro";
+
+import ReportCardsFullSet from "../components/external/ReportCardsFullSet.astro";
+import WorkspaceSidebarCard from "../components/external/WorkspaceSidebarCard.astro";
+import ReportCardEmpty from "../components/external/ReportCardEmpty.astro";
+import ChatRagCard from "../components/external/ChatRagCard.astro";
+import RagItem from "../components/external/RagItem.astro";
+import ToolRedisCell from "../components/external/ToolRedisCell.astro";
+import ToolKafkaCell from "../components/external/ToolKafkaCell.astro";
+import ToolJiraCell from "../components/external/ToolJiraCell.astro";
+import ToolJiraEtiquette from "../components/external/ToolJiraEtiquette.astro";
+import WidgetRoo from "../components/external/WidgetRoo.astro";
+import WidgetS3 from "../components/external/WidgetS3.astro";
+import "../styles/figma-colors.css";
+import "../styles/site-page.css";
+
+const siteTitle = import.meta.env.PUBLIC_SITE_TITLE ?? "Polina Portfolio";
+const baseUrl = import.meta.env.BASE_URL;
+const basePath = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+const iconUrl = `${basePath}IconP.svg`;
+const ogPreviewUrl = `${basePath}og-preview.png`;
+const smoothScrollScriptUrl = `${basePath}scripts/site-smooth-scroll.js`;
 ---
 
 <!doctype html>
@@ -7,14 +39,157 @@ const targetPath = "site/";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content={`0; url=${targetPath}`} />
-    <link rel="canonical" href={targetPath} />
-    <script is:inline>
-      window.location.replace({JSON.stringify(targetPath)});
-    </script>
+    <link rel="icon" type="image/svg+xml" href={iconUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:image" content={ogPreviewUrl} />
+    <meta property="og:image:secure_url" content={ogPreviewUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:image" content={ogPreviewUrl} />
+    <title>{siteTitle}</title>
   </head>
   <body>
-    <p>Redirecting to <a href={targetPath}>{targetPath}</a>...</p>
+    <main>
+      <header class="topbar">
+        <Logo width={100} height={32} />
+        <p class="mail">paulinaspp@gmail.com</p>
+      </header>
+
+      <section class="hero">
+        <ProfileCard />
+        <div class="chips">
+          <Chip label="About me" href="#about-me" />
+          <Chip label="Reporting System" href="#reporting-system" />
+          <Chip label="RAG" href="#rag" />
+          <Chip label="Dashboard" href="#dashboard" />
+          <Chip label="Other cases" href="#other-cases" />
+        </div>
+      </section>
+
+      <section id="about-me" class="section top-block">
+        <div class="top-grid">
+          <div class="top-grid-left">
+            <div class="top-grid-row">
+              <FolderChips item={{ label: "About me", href: "#about-me" }} />
+              <Cell size="S" />
+              <CellKorea />
+            </div>
+            <div class="top-grid-row top-grid-row--bottom">
+              <Cell class="l2" size="L2" />
+              <CellCat class="cat" />
+              <Cell class="m" size="M" />
+            </div>
+          </div>
+          <Cell class="l" size="L" />
+        </div>
+        <div class="top-grid-xl">
+          <Cell size="XL" />
+        </div>
+      </section>
+
+      <section id="reporting-system" class="reporting-grid">
+        <div class="reporting-left">
+          <div class="reporting-row">
+            <FolderChips item={{ label: "Reporting System", href: "#reporting-system" }} />
+            <InsightCell variant="default" />
+            <CellFigma href="https://www.figma.com/design/i852bQ8PXlfPXboCudQ1yx/Polina%22s-Cases?node-id=0-1&t=5uTPQ5GZFhKP9bDc-1" />
+          </div>
+          <ReportCardsFullSet />
+        </div>
+        <div class="reporting-wr">
+          <WorkspaceSidebarCard />
+          <div class="reporting-empty-wrap">
+            <ReportCardEmpty compact={true} />
+          </div>
+        </div>
+      </section>
+
+      <section id="rag" class="next-row">
+        <div class="next-row-left">
+          <div class="next-row-left-col">
+            <FolderChips item={{ label: "RAG", href: "#rag" }} />
+            <CellIcon variant="default" />
+          </div>
+          <div class="next-row-left-col">
+            <InsightCell variant="rag" />
+            <CellFigma href="https://www.figma.com/design/i852bQ8PXlfPXboCudQ1yx/Polina%22s-Cases?node-id=16-5739&t=5uTPQ5GZFhKP9bDc-1" />
+          </div>
+        </div>
+        <ChatRagCard />
+      </section>
+
+      <section class="items-row">
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+        <RagItem type="folder" />
+      </section>
+
+      <section class="items-row">
+        <RagItem type="file" iconVariant="text" name="Requirements" />
+        <RagItem type="file" iconVariant="table" name="Metrics Table" />
+        <RagItem type="file" iconVariant="json" name="RAG Config" />
+        <RagItem type="file" iconVariant="text" name="Prompt Guide" />
+        <RagItem type="file" iconVariant="table" name="Release Plan" />
+      </section>
+
+      <section id="dashboard" class="final-case-row">
+        <FolderChips item={{ label: "Dashboard", href: "#dashboard" }} />
+        <CellIcon variant="text" />
+        <ToolRedisCell />
+        <ToolKafkaCell />
+      </section>
+
+      <section class="next-case-layout">
+        <div class="next-case-jira">
+          <ToolJiraCell />
+        </div>
+        <div class="next-case-roo">
+          <WidgetRoo />
+        </div>
+        <div class="next-case-s3">
+          <WidgetS3 />
+        </div>
+        <div class="next-case-notes">
+          <CellNotes />
+        </div>
+        <div class="tool-stack tool-stack--left">
+          <ToolJiraEtiquette title="Carrot Cache" avatarSrc="/Polina-s-site/assets/source/Plug2.svg" />
+          <ToolJiraEtiquette title="Burrow Streams" avatarSrc="/Polina-s-site/assets/source/Plug3.svg" />
+        </div>
+        <div class="tool-stack tool-stack--right">
+          <ToolJiraEtiquette title="Fluffy Storage" avatarSrc="/Polina-s-site/assets/source/Plug4.svg" />
+          <ToolJiraEtiquette title="Hop Tracker" avatarSrc="/Polina-s-site/assets/source/Plug.svg" />
+        </div>
+      </section>
+
+      <section id="other-cases" class="last-row">
+        <FolderChips
+          items={[{ label: "In progress", href: "#other-cases" }, { label: "Other cases", href: "#other-cases" }]}
+          chipGap={4}
+        />
+        <CellProgress size="M" title={"Team Directory\n& Access Management\nPlatform"} />
+        <CellProgress size="S" title={"LinkedIn Mobile\nRedesign"} />
+        <CellProgress size="S" title={"OpenFaaS"} />
+      </section>
+
+      <footer class="footer">
+        <Logo width={100} height={32} />
+        <div class="footer-meta">
+          <p class="footer-links">
+            <a href="#">Download portfolio</a>
+            <span>•</span>
+            <a href="https://www.linkedin.com/in/polina-elpatevskaia-3b0167198/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          </p>
+          <span>•</span>
+          <span>paulinaspp@gmail.com</span>
+          <span>•</span>
+          <span>2026</span>
+        </div>
+      </footer>
+    </main>
+    <script type="module" src={smoothScrollScriptUrl}></script>
   </body>
 </html>
