@@ -19,17 +19,17 @@ const {
 } = Astro.props;
 
 const fileIconMap: Record<RagFileIconVariant, string> = {
-  text: "/Polina-s-site/assets/source/Variant=Text.svg",
-  table: "/Polina-s-site/assets/source/Variant=Table.svg",
-  json: "/Polina-s-site/assets/source/Variant=json.svg",
-  presentation: "/Polina-s-site/assets/source/Variant=presentation.svg",
+  text: "/assets/source/Variant=Text.svg",
+  table: "/assets/source/Variant=Table.svg",
+  json: "/assets/source/Variant=json.svg",
+  presentation: "/assets/source/Variant=presentation.svg",
 };
 ---
 
 <article class:list={["rag-item", className]} data-node-id={type === "folder" ? "67:14855" : "67:14871"}>
   <img
     class="rag-item__icon"
-    src={type === "folder" ? "/Polina-s-site/assets/source/folder-dark.svg" : fileIconMap[iconVariant]}
+    src={type === "folder" ? "/assets/source/folder-dark.svg" : fileIconMap[iconVariant]}
     alt=""
     aria-hidden="true"
   />
@@ -40,8 +40,8 @@ const fileIconMap: Record<RagFileIconVariant, string> = {
   </div>
 
   <div class="rag-item__actions">
-    <img class="rag-item__checkbox" src="/Polina-s-site/assets/source/CheckBox.svg" alt="" aria-hidden="true" />
-    <img class="rag-item__more" src="/Polina-s-site/assets/source/more_vert.svg" alt="" aria-hidden="true" />
+    <img class="rag-item__checkbox" src="/assets/source/CheckBox.svg" alt="" aria-hidden="true" />
+    <img class="rag-item__more" src="/assets/source/more_vert.svg" alt="" aria-hidden="true" />
   </div>
 </article>
 

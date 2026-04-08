@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://pauluna-spb.github.io",
-  base: "/Polina-s-site/",
+  site: "https://bypolina.com",
+  base: "/",
   devToolbar: {
     enabled: false,
   },
