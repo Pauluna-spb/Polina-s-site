@@ -442,14 +442,62 @@ main {
     grid-template-columns: 1fr;
   }
 
-  #about-me .top-grid-row:not(.top-grid-row--bottom) {
+  #about-me .top-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--grid-gap);
+    align-items: start;
   }
 
-  #about-me .top-grid-row:not(.top-grid-row--bottom) > :nth-child(3) {
-    grid-column: 1 / -1;
+  #about-me .top-grid-left {
+    display: contents;
+  }
+
+  #about-me .top-grid-left > .top-grid-row,
+  #about-me .top-grid-left > .top-grid-row--bottom {
+    display: contents;
+  }
+
+  #about-me .top-grid-left > .top-grid-row > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #about-me .top-grid-left > .top-grid-row > :nth-child(2).cell--s {
+    grid-column: 2;
+    grid-row: 1;
+    height: auto !important;
+    aspect-ratio: 310 / 232;
+  }
+
+  #about-me .top-grid-left > .top-grid-row > :nth-child(3).cell-korea {
+    grid-column: 1;
+    grid-row: 2;
+    height: 232px !important;
+  }
+
+  #about-me .top-grid-left > .top-grid-row--bottom > :nth-child(1).cell--l2 {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    height: calc(232px * 2 + var(--grid-gap)) !important;
+  }
+
+  #about-me .top-grid-left > .top-grid-row--bottom > :nth-child(2) {
+    grid-column: 1;
+    grid-row: 3;
+    height: 232px !important;
+  }
+
+  #about-me .top-grid-left > .top-grid-row--bottom > :nth-child(3) {
+    grid-column: 1;
+    grid-row: 4;
+    height: 232px !important;
+  }
+
+  #about-me .top-grid > .cell.l {
+    grid-column: 2;
+    grid-row: 4;
+    height: 232px !important;
   }
 
   .hero,
