@@ -622,6 +622,36 @@ main {
     height: 232px !important;
   }
 
+  #other-cases.last-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "folder openfaas"
+      "team linkedin";
+    gap: var(--grid-gap);
+    align-items: start;
+  }
+
+  #other-cases.last-row > :nth-child(1) {
+    grid-area: folder;
+    height: auto !important;
+    aspect-ratio: 310 / 232;
+  }
+
+  #other-cases.last-row > :nth-child(2) {
+    grid-area: team;
+  }
+
+  #other-cases.last-row > :nth-child(3) {
+    grid-area: linkedin;
+  }
+
+  #other-cases.last-row > :nth-child(4) {
+    grid-area: openfaas;
+    height: auto !important;
+    aspect-ratio: 310 / 232;
+  }
+
   .next-case-s3 .widget-s3 {
     width: 225px !important;
     height: 232px !important;
