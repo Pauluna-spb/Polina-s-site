@@ -418,13 +418,8 @@ main {
     padding: 14px 12px 40px;
   }
 
-  .mail {
-    display: none;
-  }
-
   .topbar {
     padding-bottom: 8px;
-    border-bottom: 1px solid #eceae6;
   }
 
   .hero {

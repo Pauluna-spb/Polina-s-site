@@ -214,12 +214,42 @@ const descriptionLines = description.split("\n");
 
   @media (max-width: 780px) {
     .profile-card {
-      flex-direction: column;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      grid-template-areas:
+        "photo text"
+        "meta meta";
+      column-gap: 12px;
+      row-gap: 8px;
+      align-items: start;
+    }
+
+    .profile-card__photo-wrap {
+      grid-area: photo;
+      width: 84px;
+      height: 84px;
+      flex-shrink: 0;
     }
 
     .profile-card__content {
-      width: 100%;
+      display: contents;
+    }
+
+    .profile-card__text {
+      grid-area: text;
+      min-width: 0;
+    }
+
+    .profile-card__meta {
+      grid-area: meta;
+    }
+
+    .profile-card__top {
+      width: auto;
+    }
+
+    .profile-card__description br {
+      display: none;
     }
   }
 </style>
