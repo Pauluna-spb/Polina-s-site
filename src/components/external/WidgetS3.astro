@@ -75,6 +75,10 @@
   .memory-ring {
     width: 56px;
     height: 56px;
+    flex: 0 0 56px;
+    aspect-ratio: 1 / 1;
+    min-width: 56px;
+    min-height: 56px;
     border-radius: 50%;
     background:
       radial-gradient(circle at center, #fafafa 20px, transparent 20.5px),
@@ -131,6 +135,17 @@
   .widget-s3__drop button span { font-size: 24px; line-height: 1; }
 
   @media (max-width: 780px) {
+    .widget-s3__drop {
+      margin: 10px 2px 0 4px;
+      height: 72px;
+    }
+
+    .widget-s3__drop button {
+      font-size: 13px;
+      line-height: 16px;
+      gap: 6px;
+    }
+
     .widget-s3__drop button span { font-size: 18px; }
   }
 </style>

@@ -108,6 +108,10 @@
   .memory-ring {
     width: 56px;
     height: 56px;
+    flex: 0 0 56px;
+    aspect-ratio: 1 / 1;
+    min-width: 56px;
+    min-height: 56px;
     border-radius: 50%;
     background:
       radial-gradient(circle at center, #fafafa 20px, transparent 20.5px),
@@ -196,5 +200,12 @@
     font-size: 14px;
     line-height: 16px;
     font-weight: 400;
+  }
+
+  @media (max-width: 780px) {
+    .redis-event {
+      margin-top: 10px;
+      gap: 2px;
+    }
   }
 </style>
