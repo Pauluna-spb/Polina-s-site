@@ -8,6 +8,18 @@
   --h-card: 232px;
 }
 
+@keyframes mobile-section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 body {
   margin: 0;
   background: #fdfdfd;
@@ -243,15 +255,265 @@ main {
 }
 
 @media (max-width: 1160px) {
+  body {
+    background:
+      radial-gradient(1200px 600px at 20% -10%, #f4f7f2 0%, transparent 60%),
+      radial-gradient(1000px 600px at 90% 0%, #f7f3ef 0%, transparent 58%),
+      #fcfcfb;
+  }
+
   main {
     width: auto;
+    max-width: 860px;
+    margin: 0 auto;
     padding: 20px 16px 56px;
   }
 
+  .hero {
+    margin-top: 48px;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .chips {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chips > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .top-block {
+    min-height: 0;
+    margin-bottom: 48px;
+  }
+
+  .top-grid-xl {
+    position: static;
+    margin-top: var(--grid-gap);
+  }
+
+  .reporting-grid {
+    margin-top: 48px;
+  }
+
+  .next-row,
+  .final-case-row,
+  .last-row {
+    margin-top: 48px;
+  }
+
+  .top-grid,
+  .top-grid-left,
+  .top-grid-row,
   .reporting-grid,
+  .reporting-left,
+  .reporting-row,
+  .next-row,
+  .next-row-left,
+  .next-row-left-col,
   .items-row,
-  .final-case-row {
+  .final-case-row,
+  .next-case-layout,
+  .last-row {
     display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+  }
+
+  .items-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .next-case-layout {
+    grid-template-columns: none;
+    grid-template-rows: none;
+    grid-template-areas: none;
+  }
+
+  .top-grid > *,
+  .top-grid-left > *,
+  .top-grid-row > *,
+  .top-grid-xl > *,
+  .reporting-grid > *,
+  .reporting-left > *,
+  .reporting-row > *,
+  .next-row > *,
+  .next-row-left > *,
+  .next-row-left-col > *,
+  .items-row > *,
+  .final-case-row > *,
+  .next-case-layout > *,
+  .last-row > * {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .report-cards-full-set {
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+  }
+
+  .report-cards-full-set__item {
+    position: static !important;
+  }
+
+  .report-card-full,
+  .report-card-empty,
+  .workspace-card,
+  .chat-rag-card,
+  .widget-roo,
+  .widget-s3,
+  .jira-cell,
+  .widget-card,
+  .tool-jira,
+  .cell,
+  .cell-cat,
+  .cell-korea,
+  .cell-figma,
+  .cell-icon,
+  .cell-progress,
+  .insight-cell,
+  .folder,
+  .rag-item {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .tool-stack,
+  .tool-stack .tool-jira {
+    width: 100%;
+  }
+
+  .footer {
+    margin-top: 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-meta {
     flex-wrap: wrap;
+    row-gap: 4px;
+  }
+}
+
+@media (max-width: 780px) {
+  main {
+    max-width: 430px;
+    padding: 14px 12px 40px;
+  }
+
+  .mail {
+    display: none;
+  }
+
+  .topbar {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eceae6;
+  }
+
+  .hero {
+    margin-top: 28px;
+    gap: 24px;
+  }
+
+  .section {
+    margin-top: 16px;
+  }
+
+  .reporting-grid,
+  .next-row,
+  .final-case-row,
+  .last-row {
+    margin-top: 52px;
+  }
+
+  .items-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  #about-me,
+  #reporting-system,
+  #rag,
+  .items-row,
+  #dashboard,
+  .next-case-layout,
+  #other-cases,
+  .footer {
+    animation: mobile-section-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero {
+    animation-delay: 20ms;
+  }
+
+  #about-me {
+    animation-delay: 60ms;
+  }
+
+  #reporting-system {
+    animation-delay: 100ms;
+  }
+
+  #rag {
+    animation-delay: 140ms;
+  }
+
+  .items-row {
+    animation-delay: 180ms;
+  }
+
+  #dashboard {
+    animation-delay: 220ms;
+  }
+
+  .next-case-layout {
+    animation-delay: 260ms;
+  }
+
+  #other-cases {
+    animation-delay: 300ms;
+  }
+
+  .footer {
+    animation-delay: 340ms;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  #about-me,
+  #reporting-system,
+  #rag,
+  .items-row,
+  #dashboard,
+  .next-case-layout,
+  #other-cases,
+  .footer {
+    animation: none !important;
   }
 }
