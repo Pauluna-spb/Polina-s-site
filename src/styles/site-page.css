@@ -442,6 +442,16 @@ main {
     grid-template-columns: 1fr;
   }
 
+  #about-me .top-grid-row:not(.top-grid-row--bottom) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  #about-me .top-grid-row:not(.top-grid-row--bottom) > :nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
   .hero,
   #about-me,
   #reporting-system,
