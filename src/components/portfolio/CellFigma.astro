@@ -84,4 +84,31 @@ const {
     color: var(--figma-text-contrast);
     font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 20;
   }
+
+  @media (max-width: 780px) {
+    .cell-figma__logo {
+      width: 78px;
+      height: 78px;
+      left: auto;
+      right: 10px;
+      top: 10px;
+    }
+
+    .cell-figma__link {
+      top: auto;
+      bottom: 12px;
+      left: 12px;
+      height: 22px;
+      padding: 0 6px;
+      max-width: calc(100% - 24px);
+    }
+
+    .cell-figma__link-text {
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 </style>
