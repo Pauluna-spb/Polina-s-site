@@ -6,6 +6,7 @@ on:
       - main
       - master
       - feature/site-from-components
+      - mobile-version
   workflow_dispatch:
 
 permissions:
