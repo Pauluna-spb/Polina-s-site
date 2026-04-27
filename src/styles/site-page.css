@@ -335,7 +335,7 @@ main {
 
   .items-row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   #reporting-system .reporting-row {
@@ -508,6 +508,16 @@ main {
   main {
     max-width: 430px;
     padding: 14px 12px 40px;
+  }
+
+  .chips {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 12px;
+    padding-right: 0;
+    box-sizing: border-box;
+    scroll-padding-left: 12px;
   }
 
   .topbar {
